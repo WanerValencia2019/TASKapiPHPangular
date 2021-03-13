@@ -1,0 +1,40 @@
+<!-- <img src="./../../../assets/images/river-city.jpg" alt="" srcset=""> -->
+<div class="imagen-fondo container">
+    <p-messages [(value)]="message" [enableService]="true"></p-messages>
+    <div class="p-d-flex p-jc-center p-ac-center">
+        <div class="p-m-5 p-shadow-20 p-p-3  radius p-md-6 p-lg-4 p-sm-10 card">
+            <h2 class="p-text-center ">Rescue Notes</h2>
+            <form [formGroup]="formLogin" (ngSubmit)="submit()">
+                <div class="p-fluid">
+                    <div class="p-field">
+                        <label style="font-weight: 400;" for="username">Usuario</label>
+                        <div class="p-col-12 ">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <input required formControlName="username" type="text" pInputText aria-describedby="username-help" placeholder="Username">
+                            </div>
+                            <small id="username-help"></small>
+                        </div>
+                    </div>
+                    <div class="p-field">
+                        <label style="font-weight: 400;" for="password">Contraseña</label>
+                        <div class="p-col-12 ">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                                <input required formControlName="password" type="password" pInputText placeholder="password">
+                            </div>
+                            <small id="username-help"></small>
+                        </div>
+                    </div>
+                    <div class="p-d-flex p-jc-center ">
+                        <button [disabled]="formLogin.status == 'INVALID'" pButton type="submit" style="width: 50%;" label="Iniciar sesión" class="p-button-raised p-button-success"></button>
+                    </div>
+                    <div class="p-d-flex p-jc-center p-mt-3  p-mb-2">
+                        <a style="color: black;" [routerLink]="['/auth/register']">¿No tienes una cuenta?<span class="p-text-bold Paleta-unica-2-1-rgba"> Regístrate</span></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

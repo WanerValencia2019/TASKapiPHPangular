@@ -1,0 +1,20 @@
+<div class="title-container">
+    <h2 class="title"><a [routerLink]="['/']" routerLinkActive="router-link-active">Rescue Notes</a> </h2>
+</div>
+<p-menubar [model]="items">
+    <!-- <span class="p-input-icon-left">
+  <i class="pi pi-search"></i>
+    <input type="text" pInputText  placeholder="Search">
+    <button pButton label="Search" icon="pi pi-power-off"></button>
+  </span> -->
+    <div *ngIf="authService.user.logged;else elseTemplate" class="p-grid">
+        <button (click)="authService.logout()" style="color: red;" label pButton pRipple type="button" label="Cerrar sesión" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-md"></button>
+    </div>
+    <ng-template #elseTemplate>
+        <div class="p-grid ">
+            <button [routerLink]="['auth/register']" pButton pRipple type="button" label="Registrarse" class="p-button-rounded p-button-outlined p-mr-1"></button>
+            <button [routerLink]="['auth/login']" pButton pRipple label="Login" icon="pi pi-sign-in" class="p-button-rounded p-button-success"></button>
+        </div>
+    </ng-template>
+
+</p-menubar>

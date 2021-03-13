@@ -1,1 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.radius {
+    border-radius: 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Color Theme Swatches in Hex */
+.Paleta-unica-2-1-hex {
+    color: #19769E;
+}
+
+.Paleta-unica-2-2-hex {
+    color: #EB546D;
+}
+
+.Paleta-unica-2-3-hex {
+    color: #3DB6EB;
+}
+
+.Paleta-unica-2-4-hex {
+    color: #EBE126;
+}
+
+.Paleta-unica-2-5-hex {
+    color: #9E9821;
+}
+
+/* Color Theme Swatches in RGBA */
+.Paleta-unica-2-1-rgba {
+    color: rgba(25, 118, 158, 1);
+}
+
+.Paleta-unica-2-2-rgba {
+    color: rgba(235, 84, 109, 1);
+}
+
+.Paleta-unica-2-3-rgba {
+    color: rgba(61, 182, 235, 1);
+}
+
+.Paleta-unica-2-4-rgba {
+    color: rgba(235, 225, 38, 1);
+}
+
+.Paleta-unica-2-5-rgba {
+    color: rgba(158, 152, 33, 1);
+}
+
+/* Color Theme Swatches in HSLA */
+.Paleta-unica-2-1-hsla {
+    color: hsla(198, 72, 35, 1);
+}
+
+.Paleta-unica-2-2-hsla {
+    color: hsla(350, 79, 62, 1);
+}
+
+.Paleta-unica-2-3-hsla {
+    color: hsla(198, 81, 58, 1);
+}
+
+.Paleta-unica-2-4-hsla {
+    color: hsla(56, 83, 53, 1);
+}
+
+.Paleta-unica-2-5-hsla {
+    color: hsla(57, 65, 37, 1);
+}

@@ -1,0 +1,26 @@
+<p-confirmDialog header="Confirmar"></p-confirmDialog>
+<p-toast></p-toast>
+<div class="p-shadow-12">
+    <p-panel [toggleable]="true">
+        <ng-template class="p-d-flex " pTemplate="header">
+            <span>{{title}}</span>
+            <span style="color: rgba(73, 71, 71, 0.582);font-size: small;">{{formatDate}}</span>
+        </ng-template>
+        <ng-template pTemplate="icons">
+        </ng-template>
+        <p class="p-text-justify" [innerHTML]="sanitizer.bypassSecurityTrustHtml(content)"></p>
+        <ng-template pTemplate="footer">
+            <div class="p-d-flex p-jc-between">
+                <div>
+                    <button (click)="updateFavorite()" pTooltip="Agregar a favoritos" tooltipPosition="top" pButton pRipple type="button" icon="pi pi-heart" [ngClass]="favorite ? '':'p-button-outlined'" class="p-button-rounded  p-button-help"></button>
+                    <button (click)="updateComplete()" pTooltip="Completar" tooltipPosition="top" pButton pRipple type="button" icon="pi pi-check" [ngClass]="complete ? '':'p-button-outlined'" class="p-button-rounded  p-ml-1"></button>
+                </div>
+                <div>
+                    <button (click)="deleteConfirmation()" pTooltip="Eliminar" tooltipPosition="top" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                    <button pTooltip="Editar" tooltipPosition="top" pButton pRipple type="button" icon="pi pi-pencil" class="p-ml-1 p-button-rounded p-button-warning"></button>
+                </div>
+            </div>
+
+        </ng-template>
+    </p-panel>
+</div>

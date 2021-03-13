@@ -1,0 +1,17 @@
+<div class="p-grid p-jc-around p-ml-5 p-mr-5 p-mb-5" style="margin-bottom: 10px;">
+    <div *ngIf="taskService.notes.length > 0 then data else noData"> </div>
+    <ng-template #data>
+        <div style="border-radius: 10px;" class="p-lg-4  p-md-6 p-sm-12   p-mt-4 " *ngFor="let task of taskService.notes">
+            <app-note [id]="task.id" [title]="task.title" [created_at]="task.created_at" [content]="task.content" [favorite]="task.favorite" [complete]="task.completed"></app-note>
+        </div>
+    </ng-template>
+    <ng-template #noData>
+        <div class=" p-d-flex p-flex-column p-jc-center">
+            <h2>Aún no has creado notas o tareas</h2>
+            <div class="p-d-flex  p-jc-center">
+                <button pButton pRiple label="Crear una nueva nota" class="p-button-rounded p-button-lg"></button>
+            </div>
+        </div>
+    </ng-template>
+
+</div>

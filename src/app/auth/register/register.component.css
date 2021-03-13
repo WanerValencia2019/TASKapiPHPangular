@@ -1,0 +1,19 @@
+.imagen-fondo {
+    background-image: url('./../../../assets/images/river-city.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+hr {
+    border-color: rgba(000, 000, 000, .1);
+}
