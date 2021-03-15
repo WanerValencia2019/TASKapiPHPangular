@@ -14,6 +14,10 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {MenuModule} from 'primeng/menu';
 import {ToastModule} from 'primeng/toast';
 import { EditComponent } from './edit/edit.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { EditComponent } from './edit/edit.component'
     MenuModule,
     TooltipModule,
     ConfirmDialogModule,
-    ToastModule
+    ToastModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputTextareaModule,
+    CheckboxModule
   ]
 })
 export class TaskModule { }

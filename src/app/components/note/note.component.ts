@@ -56,7 +56,7 @@ export class NoteComponent implements OnInit {
       this.messageService.add({ severity:'success', summary: 'Éxito', detail: 'Eliminada correctamente'});
       setTimeout(() => {
         this.taskService.notes = this.taskService.notes.filter((n)=>n.id !== this.id);
-      }, 2000);
+      }, 1500);
     },(error)=>{
       console.log(error);
       this.messageService.add({ severity:'error', summary: 'Error', detail: 'No se pudo eliminar la tarea'});
