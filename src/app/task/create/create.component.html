@@ -2,18 +2,18 @@
     <p-toast></p-toast>
     <div class="p-d-flex p-jc-center p-ac-center">
         <div class="p-m-5 p-shadow-20 p-p-3  radius p-md-10 p-lg-6 p-sm-12 card">
-            <h2 class="p-text-center ">Editar</h2>
+            <h2 class="p-text-center ">Nueva tarea</h2>
             <form [formGroup]="createForm" (ngSubmit)="submit()" class="p-flex">
                 <div class="p-fluid p-formgrid p-grid p-jc-center">
                     <div class="p-col-10">
                         <label for="title" class="">Titulo</label>
-                        <input class="p-mt-1" type="text" pInputText formControlName="title">
+                        <input class="p-mt-1" type="text" pInputText formControlName="title" required>
                     </div>
                 </div>
                 <div class="p-fluid p-formgrid p-grid p-jc-center p-mt-3">
                     <div class="p-col-10">
                         <label for="title" class="">Descripción</label>
-                        <textarea class="p-mt-1" rows="6" cols="30" [autoResize]="true" pInputTextarea formControlName="description"></textarea>
+                        <textarea class="p-mt-1" rows="6" cols="30" [autoResize]="true" pInputTextarea formControlName="description" required></textarea>
                     </div>
                 </div>
                 <div class="p-fluid p-formgrid p-jc-center p-grid p-mt-3">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="p-d-flex p-jc-center p-mt-3">
-                    <button [disabled]="createForm.valid" type="submit" pButton label="Actualizar" class="p-button-rounded p-button-success p-button-lg"></button>
+                    <button [disabled]="createForm.invalid" type="submit" pButton label="Crear" class="p-button-rounded p-button-success p-button-lg"></button>
                 </div>
             </form>
         </div>

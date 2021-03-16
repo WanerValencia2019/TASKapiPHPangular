@@ -35,7 +35,18 @@ export class TaskService {
     }
     );
   }
-  update(token:string, id_user:number,id_tarea:number, title:string,content:string, favorite:boolean,complete:boolean){
+  create(token:string, id_user:number, title:string,content:string, favorite:boolean):Observable<any>{
+    let data = {
+      'id_user':id_user,
+      'title':title,
+      'content':content,
+      'favorite':favorite ? 1:0,
+    }
+    return this.http.post(`developer/api_task/notes/create.php`,data,{headers: {
+      'authorization':token
+    }});
+  }
+  update(token:string, id_user:number,id_tarea:number, title:string,content:string, favorite:boolean,complete:boolean):Observable<any>{
     let data = {
       'id_user':id_user,
       'id_tarea':id_tarea,
