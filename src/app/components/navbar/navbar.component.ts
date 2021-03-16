@@ -15,20 +15,22 @@ export class NavbarComponent implements OnInit {
     this.items = [
       {
           label: 'Inicio',
-          icon:'pi pi-home'
-      },
-      {
-        label: 'Blog',
-        icon:PrimeIcons.BOOK
+          icon:'pi pi-home',
+          routerLink:['/task/home']
       },
       {
           label: 'Categorias',
           icon:PrimeIcons.LIST,
           items: [
-              {label: 'Deportes', icon: PrimeIcons.BRIEFCASE},
-              {label: 'Ciencia y tecnología', icon: 'pi pi-fw pi-refresh'},
-              {label: 'Salud', icon: 'pi pi-fw pi-refresh'}
+              {label: 'Favoritos', icon: PrimeIcons.HEART, routerLink:['/taks/favorites']},
+              {label: 'Completas', icon: PrimeIcons.CHECK_CIRCLE, routerLink:['/taks/completes']},
           ]
+      },
+      {
+        label: 'Añadir nueva tarea',
+        styleClass:'add-task',
+        icon: PrimeIcons.PLUS_CIRCLE,
+        routerLink:['/task/create']
       }
   ];
   }

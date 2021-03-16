@@ -53,6 +53,11 @@ a {
     color: rgba(235, 225, 38, 1);
 }
 
+.add-task {
+    font-weight: bold;
+    color: teal;
+}
+
 .Paleta-unica-2-5-rgba {
     color: rgba(158, 152, 33, 1);
 }

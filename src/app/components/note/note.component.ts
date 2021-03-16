@@ -86,4 +86,5 @@ export class NoteComponent implements OnInit {
       this.messageService.add({ severity:'error', summary: 'Error', detail: 'No se pudo actualizar la tarea'});
     })
   }
+
 }

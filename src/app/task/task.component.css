@@ -1,0 +1,8 @@
+.imagen-fondo {
+    background-color: rgba(61, 182, 235, 1);
+    background-image: url('./../../assets/images/river-city.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

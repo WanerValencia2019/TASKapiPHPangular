@@ -1,18 +1,27 @@
 .title {
-  text-align: center;
-  font-weight: 400;
+    text-align: center;
+    font-weight: 400;
 
 }
+
 .title a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
+
 .title-container {
-  top: 0;
-  padding:1px;
-  position: relative;
-  background-color: #5844EB;
+    top: 0;
+    padding: 1px;
+    position: relative;
+    background-color: #5844EB;
 }
+
 .p-input-icon-left {
-  margin-right: 5px;
+    margin-right: 5px;
+}
+
+.add-task {
+    font-weight: bold;
+    color: teal;
+    background-color: tomato;
 }
