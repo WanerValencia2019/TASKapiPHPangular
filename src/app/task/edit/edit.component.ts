@@ -31,7 +31,11 @@ export class EditComponent implements OnInit,DoCheck {
     'complete':new FormControl(false)
   })
 
-  constructor(public sanitizer: DomSanitizer,private router:Router,private route:ActivatedRoute,private taskService:TaskService, private authService:AuthService, private messageService:MessageService) { }
+  constructor(public sanitizer: DomSanitizer,private router:Router,private route:ActivatedRoute,private taskService:TaskService, private authService:AuthService, private messageService:MessageService) {
+    if(!authService.user.logged){
+      router.navigate(['/auth/login'])
+    }
+  }
   ngDoCheck(){
     if(!this.authService.user.logged){
       this.router.navigate(['/auth/login'])

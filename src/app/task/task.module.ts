@@ -19,13 +19,17 @@ import { InputTextModule } from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
 import { CreateComponent } from './create/create.component';
+import { CompletesComponent } from './completes/completes.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     NoteComponent,
     EditComponent,
-    CreateComponent
+    CreateComponent,
+    CompletesComponent,
+    FavoritesComponent
   ],
   imports: [
     CommonModule,
