@@ -1,3 +1,4 @@
+import { LocalstorageService } from './../../services/localStorage/localstorage.service';
 import { Router } from '@angular/router';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit,DoCheck {
 
 
 
-  constructor(public authService:AuthService, private router: Router, private messageService: MessageService) {
+  constructor(public authService:AuthService, private router: Router, private messageService: MessageService, private storage:LocalstorageService) {
     if(this.authService.user.logged){
       this.router.navigate(['task/']);
     }
@@ -49,9 +50,11 @@ export class LoginComponent implements OnInit,DoCheck {
     this.authService.login(this.iusername, this.ipassword)
     .subscribe((_res:any)=>{
       this.authService.user= {..._res.data, logged:true, error:false, errorMessage: ''};
+      this.storage.set(this.storage.keys.auth,this.authService.user);
     },
     (_error: any)=>{
       this.authService.user={...this.authService.user, logged:false}
+      this.storage.set(this.storage.keys.auth,this.authService.user);
       this.authService.error={...this.authService.error,error:true, status:_error.status, statusText:_error.statusText,errorMessage:_error.error.message }
       if(this.authService.error.status > 500){
         this.messageService.add({severity:'error', summary:'Red', detail:'Revisa tu conexión a internet'});

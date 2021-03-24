@@ -1,3 +1,4 @@
+import { LocalstorageService } from './../localStorage/localstorage.service';
 import { TaskService } from './../notes/task.service';
 import { ErrorAPI } from './../errorsAPI.interface';
 import { Injectable } from '@angular/core';
@@ -28,7 +29,11 @@ export class AuthService {
     status:0,
     statusText:''
   }
-  constructor(private http: HttpClient,private taskService:TaskService) {}
+  constructor(private http: HttpClient,private taskService:TaskService, private storage:LocalstorageService) {
+      if(storage.get(storage.keys.auth) != null){
+        this.user = storage.get(storage.keys.auth);
+      }
+  }
 
   register(form:any):Observable<any> {
     let data={
@@ -63,7 +68,8 @@ export class AuthService {
       return true;
     },
     (_error: any)=>{
-      this.user={...this.user, logged:false}
+      this.user= this.initialUSER;
+      this.storage.set(this.storage.keys.auth,this.user);
       this.error={...this.error,error:true, errorMessage:_error.error.message}
       return false;
     }

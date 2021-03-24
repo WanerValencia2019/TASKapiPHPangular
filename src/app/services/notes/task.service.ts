@@ -1,3 +1,4 @@
+import { LocalstorageService } from './../localStorage/localstorage.service';
 import { Observable } from 'rxjs';
 import { Notes } from '../../task/models/notesModel.interface';
 import { Injectable } from '@angular/core';
@@ -17,7 +18,11 @@ export class TaskService {
     status:0,
     statusText:''
   }
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private storage:LocalstorageService) {
+    if(storage.get(storage.keys.notes) != null){
+      this.notes = storage.get(storage.keys.notes);
+    }
+   }
 
   getAll(id_user:number, token:string){
     this.http.get(`developer/api_task/notes/list.php?id=${id_user}`,{headers: {
@@ -27,6 +32,7 @@ export class TaskService {
       this.notes = [];
       for (const data of _res.data) {
         this.notes.unshift({...data, favorite:parseInt(data.favorite) == 1 ? true:false, completed:parseInt(data.completed) == 1 ? true:false});
+        this.storage.set(this.storage.keys.notes,this.notes);
       }
       console.log(this.notes);
     },
