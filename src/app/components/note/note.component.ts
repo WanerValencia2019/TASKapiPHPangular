@@ -1,3 +1,4 @@
+import { LocalstorageService } from './../../services/localStorage/localstorage.service';
 //import { Notes } from './../../task/models/notesModel.interface';
 import { AuthService } from './../../services/auth/auth.service';
 import { TaskService } from './../../services/notes/task.service';
@@ -26,7 +27,7 @@ export class NoteComponent implements OnInit {
   @Input() id: number=-1;
   formatDate:any;
 
-  constructor(public sanitizer: DomSanitizer, private taskService:TaskService, private authService:AuthService, private confirmationService: ConfirmationService, private messageService: MessageService) {}
+  constructor(public sanitizer: DomSanitizer, private taskService:TaskService, private authService:AuthService, private confirmationService: ConfirmationService, private messageService: MessageService,private storage:LocalstorageService) {}
 
   ngOnInit(): void {
     let dateString=new Date(this.created_at).toUTCString();
@@ -56,6 +57,7 @@ export class NoteComponent implements OnInit {
       this.messageService.add({ severity:'success', summary: 'Éxito', detail: 'Eliminada correctamente'});
       setTimeout(() => {
         this.taskService.notes = this.taskService.notes.filter((n)=>n.id !== this.id);
+        this.storage.set(this.storage.keys.notes, this.taskService.notes)
       }, 1500);
     },(error)=>{
       console.log(error);
@@ -69,6 +71,7 @@ export class NoteComponent implements OnInit {
       this.messageService.add({ severity:'success', summary: 'Éxito', detail: 'Tarea actualizada correctamente'});
       let index = this.taskService.notes.findIndex((note)=>note.id == this.id);
       this.taskService.notes[index].favorite = !this.favorite;
+      this.storage.set(this.storage.keys.notes, this.taskService.notes)
     },(error)=>{
       console.log(error);
       this.messageService.add({ severity:'error', summary: 'Error', detail: 'No se pudo actualizar la tarea'});
@@ -81,6 +84,7 @@ export class NoteComponent implements OnInit {
       this.messageService.add({ severity:'success', summary: 'Éxito', detail: 'Tarea actualizada correctamente'});
       let index = this.taskService.notes.findIndex((note)=>note.id == this.id);
       this.taskService.notes[index].completed = !this.complete;
+      this.storage.set(this.storage.keys.notes, this.taskService.notes)
     },(error)=>{
       console.log(error);
       this.messageService.add({ severity:'error', summary: 'Error', detail: 'No se pudo actualizar la tarea'});

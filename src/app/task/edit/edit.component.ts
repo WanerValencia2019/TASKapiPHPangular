@@ -7,6 +7,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
+
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -45,6 +47,7 @@ export class EditComponent implements OnInit,DoCheck {
     const routeParams = this.route.snapshot.paramMap;
     this.taskId = Number(routeParams.get('taskId'));
     this.task = this.taskService.notes.filter((task) => task.id == this.taskId)[0];
+
     console.log("ENTRA");
 
     let reg = RegExp('<br />','g');

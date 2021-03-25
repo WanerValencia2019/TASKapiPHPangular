@@ -63,13 +63,14 @@ export class AuthService {
       'authorization':this.user.token
     }})
     .subscribe((_res:any)=>{
+      this.storage.reset();
       this.user= this.initialUSER;
       this.taskService.notes=[];
       return true;
     },
     (_error: any)=>{
       this.user= this.initialUSER;
-      this.storage.set(this.storage.keys.auth,this.user);
+      this.storage.reset();
       this.error={...this.error,error:true, errorMessage:_error.error.message}
       return false;
     }
