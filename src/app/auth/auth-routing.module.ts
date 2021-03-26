@@ -1,7 +1,9 @@
+import { ChangePasswordComponent } from './configuration/change-password/change-password.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 
 const routes: Routes = [
   {
@@ -9,6 +11,9 @@ const routes: Routes = [
   },
   {
     path:'register', component:RegisterComponent
+  },
+  {
+    path:'change_password', component:ChangePasswordComponent
   },
   {
     path:'', redirectTo:'login', pathMatch:'full'

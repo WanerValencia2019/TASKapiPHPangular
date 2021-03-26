@@ -76,4 +76,15 @@ export class AuthService {
     );
     return false;
   }
+  change_password(username:string, old_password:string, new_password:string, confirm_password:string):Observable<any>{
+    let data = {
+      "username":username,
+      "old_password":old_password,
+      "password":new_password,
+      "password_confirm":confirm_password
+    }
+    return this.http.post('developer/api_task/auth/change_password.php',data,{headers: {
+      'authorization':this.user.token
+    }});
+  }
 }

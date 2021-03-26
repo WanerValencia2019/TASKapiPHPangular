@@ -9,6 +9,7 @@
   </span> -->
     <div *ngIf="authService.user.logged;else elseTemplate" class="p-grid">
         <button (click)="authService.logout()" style="color: red;" label pButton pRipple type="button" label="Cerrar sesión" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-md"></button>
+        <button pButton pRipple type="button" [routerLink]="['/auth/change_password']" icon="pi pi-cog" style="margin-right: 5px;" class="p-button-rounded p-button-text p-button-lg"></button>
     </div>
     <ng-template #elseTemplate>
         <div class="p-grid ">

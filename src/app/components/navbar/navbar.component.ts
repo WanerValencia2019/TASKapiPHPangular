@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
         styleClass:'add-task',
         icon: PrimeIcons.PLUS_CIRCLE,
         routerLink:['/task/create']
-      }
+      },
   ];
   }
 
